@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Dortmund Wanderers</title>
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-startup-image" href="startup.png" />
+
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+   <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+
+	<script src="myscript.js"></script>
+   <style>
+   td {border: 1px solid black;}
+   .ui-page {
+      background-color: black;
+      background-image:url(background.png);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+   }
+   .whitetext {
+      color: white;
+      text-shadow: 1px 1px 0px black;
+   }
+   .redtext {
+      color: red;
+      text-shadow: 1px 1px 0px black;
+   }
+   table {
+      border-collapse:collapse;
+   }
+   table,th, td {
+      border: 1px solid white;
+   }
+   .ui-btn-active {
+       background-image: none !important;
+       background-color: #F1F1F1 !important;
+       border: 1px solid #CCCCCC !important;
+       color: #222222 !important;
+       text-shadow: 0 1px 0 #FFFFFF !important;
+    }
+    #mainbuttons a:active {
+      border: 1px solid white;
+    }
+    .ui-li-aside {
+      margin: -10px !important;
+    }
+    .ui-li-desc, .longtext .ui-li-heading {
+      white-space: normal !important;
+    }
+    .longtext .ui-li-desc {
+      margin: 0 0 0.6em !important;
+    }
+    .logomove {
+      margin: 10px !important;
+    }
+    .smaller {
+      font-size: 0.7em !important;
+    }
+   </style>
+</head>
+<body>
+<div data-role="page" id="home">
+	<div  data-role="content" id="mainbuttons">
+		<a href="#bundesliga" data-theme="" data-transition="slide"><img src="Button_Bundesliga.png"/></a>
+		<a href="#regionalliga" data-theme="" data-transition="slide"><img src="Button_Regionalliga.png"/></a>
+		<a href="#landesliga" data-theme="" data-transition="slide"><img src="Button_Landesliga.png"/></a>
+		<a href="#softball" data-theme="" data-transition="slide"><img src="Button_Softball.png"/></a>
+		<a href="#junioren" data-theme="" data-transition="slide"><img src="Button_Junioren.png"/></a>
+		<a href="#jugend" data-theme="" data-transition="slide"><img src="Button_Jugend.png"/></a>
+		<a href="#schueler" data-theme="" data-transition="slide"><img src="Button_Schueler.png"/></a>
+		<a href="#teeball" data-theme="" data-transition="slide"><img src="Button_TBall.png"/></a>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <div data-role="navbar">
+         <ul>
+            <li><a href="#news" data-icon="grid">News</a></li>
+            <li><a href="#comingup" data-icon="star">Coming Up</a></li>
+            <li><a href="index.html" data-icon="home" class="ui-btn-active ui-state-persist">Teams</a></li>
+         </ul>
+      </div><!-- /navbar -->
+   </div><!-- /footer -->
+</div>
+
+
+<!-- News -->
+
+<div data-role="page" id="news" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>News</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="newslistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <div data-role="navbar">
+         <ul>
+            <li><a href="#news" data-icon="grid" class="ui-btn-active ui-state-persist">News</a></li>
+            <li><a href="#comingup" data-icon="star">Coming Up</a></li>
+            <li><a href="#home" data-icon="home">Teams</a></li>
+         </ul>
+      </div><!-- /navbar -->
+   </div><!-- /footer -->
+</div>
+
+
+<!-- Coming Up -->
+
+<div data-role="page" id="comingup" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Coming Up</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="cominguplistview">
+<!--          <li class="longtext">
+            <h3 class="ui-li-heading">Kevin Großkreutz eröffnet die Saison 2013</h3>
+            <p><img src="http://www.dortmund-wanderers.de/images/1Slider/opener2013.png" width="290" style="float: left; margin-right: 5px; margin-bottom: 5px;" />Die Bundesliga startet mit einem Klassiker in die Saison 2013. Als erste Herausforderer werden am Sonntag 21.04.2013 die Solingen Alligators nach Dortmund anreisen. Der Hoeschpark wird für dieses Event zur Zeit auf Hochglanz poliert. Für den traditionellen First Pitch konnten wir Kevin Großkreutz vom BVB gewinnen. Wir freuen uns sehr auf dieses Highlight. Seid dabei. Spielbeginn ist um 12:00 Uhr und ca. 15:00 Uhr.</p>
+         </li>
+         <li class="longtext">
+            <h3 class="ui-li-heading">Let's Play Ball</h3>
+            <p><span><span>Kaum  kann man dieses Jahr überhaupt draußen Baseball spielen, schon geht  die Saison los!!</span></span></p><p><span><span>Am kommenden Wochenende eröffnet unser Regionalligateam die Saison im Wanderers Ballpark. Zu Gast werden die Hänigsen Farmers am 14.04.13 sein. </span></span><span><span>Das Spiel beginnt um 13:00 Uhr. </span></span><span><span>Die Junioren fahren an diesem Tag für ihr erstes Spiel nach Köln zu den  Cardinals. Spielbeginn dort ist ebenfalls um 13:00 Uhr. Rockin' the Ballpark!!!!</span></span></p><p><span><span>Das ursprünglich für der 13.04.13 angesetzte Spiel des Jugendteams gegen die Marl Sly Dogs fällt leider aus.</span></span></p>
+         </li>
+ -->      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <div data-role="navbar">
+         <ul>
+            <li><a href="#news" data-icon="grid">News</a></li>
+            <li><a href="#comingup" data-icon="star" class="ui-btn-active ui-state-persist">Coming Up</a></li>
+            <li><a href="#home" data-icon="home">Teams</a></li>
+         </ul>
+      </div><!-- /navbar -->
+   </div><!-- /footer -->
+</div>
+
+
+
+<!-- Übersichtsseiten -->
+
+<div data-role="page" id="bundesliga" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>1. Bundesliga</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="bundesliga_lastnext">
+         <li id="bundesliga_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="bundesliga_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#bundesligaerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#bundesligatab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="regionalliga" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Regionalliga</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="regionalliga_lastnext">
+         <li id="regionalliga_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="regionalliga_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#regionalligaerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#regionalligatab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="landesliga" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Landesliga</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="landesliga_lastnext">
+         <li id="landesliga_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="landesliga_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#landesligaerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#landesligatab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="softball" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Softball</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="softball_lastnext">
+         <li id="softball_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="softball_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#softballerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#softballtab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="junioren" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Junioren</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="junioren_lastnext">
+         <li id="junioren_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="junioren_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#juniorenerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#juniorentab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="jugend" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Jugend</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="jugend_lastnext">
+         <li id="jugend_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="jugend_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#jugenderg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#jugendtab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="schueler" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Schüler LP</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="schueler_lastnext">
+         <li id="schueler_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="schueler_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#schuelererg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#schuelertab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+<div data-role="page" id="teeball" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Tee-Ball</h1></div> 
+	<div  data-role="content">
+      <ul data-role="listview" id="teeball_lastnext">
+         <li id="teeball_last"><h3 class="ui-li-heading">Letztes Spiel</h3></li>
+         <li id="teeball_next"><h3 class="ui-li-heading">Nächstes Spiel</h3></li>
+      </ul>
+      <hr/>
+		<a href="#teeballerg" data-role="button" data-transition="slide">Spielplan</a>
+		<a href="#teeballtab" data-role="button" data-transition="slide">Tabelle</a>
+	</div> 
+</div>
+
+<!-- Spielpläne -->
+
+
+<div data-role="page" id="bundesligaerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>1. Bundesliga</h1></div> 
+	<div  data-role="content" id="bundesligacontent">
+      <ul data-role="listview" id="bundesligalistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="regionalligaerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Regionalliga</h1></div> 
+	<div  data-role="content" id="regionalligacontent">
+      <ul data-role="listview" id="regionalligalistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="landesligaerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Landesliga</h1></div> 
+	<div  data-role="content" id="landesligacontent">
+      <ul data-role="listview" id="landesligalistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="softballerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Softball</h1></div> 
+	<div  data-role="content" id="softballcontent">
+      <ul data-role="listview" id="softballlistview">
+      </ul>
+   </div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="juniorenerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Junioren</h1></div> 
+	<div  data-role="content" id="juniorencontent">
+      <ul data-role="listview" id="juniorenlistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="jugenderg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Jugend</h1></div> 
+	<div  data-role="content" id="jugendcontent">
+      <ul data-role="listview" id="jugendlistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="schuelererg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Schüler LP</h1></div> 
+	<div  data-role="content" id="schuelercontent">
+      <ul data-role="listview" id="schuelerlistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+<div data-role="page" id="teeballerg" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Tee-Ball</h1></div> 
+	<div  data-role="content" id="teeballcontent">
+      <ul data-role="listview" id="teeballlistview">
+      </ul>
+	</div> 
+   <div data-role="footer" data-position="fixed">		
+      <a href="#" data-rel="back" data-role="button" data-icon="arrow-l">Zurück</a>
+   </div><!-- /footer -->
+</div>
+
+<!-- Tabellen -->
+
+
+<div data-role="page" id="bundesligatab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>1. Bundesliga</h1></div> 
+	<div  data-role="content" id="bundesligatabcontent">
+      <ul data-role="listview" id="bundesligatablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="regionalligatab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Regionalliga</h1></div> 
+	<div  data-role="content" id="regionalligatabcontent">
+      <ul data-role="listview" id="regionalligatablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="landesligatab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Landesliga</h1></div> 
+	<div  data-role="content" id="landesligatabcontent">
+      <ul data-role="listview" id="landesligatablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="softballtab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Softball</h1></div> 
+	<div  data-role="content" id="softballtabcontent">
+      <ul data-role="listview" id="softballtablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="juniorentab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Junioren</h1></div> 
+	<div  data-role="content" id="juniorentabcontent">
+      <ul data-role="listview" id="juniorentablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="jugendtab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Jugend</h1></div> 
+	<div  data-role="content" id="jugendtabcontent">
+      <ul data-role="listview" id="jugendtablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="schuelertab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Schüler LP</h1></div> 
+	<div  data-role="content" id="schuelertabcontent">
+      <ul data-role="listview" id="schuelertablistview">
+      </ul>
+	</div> 
+</div>
+<div data-role="page" id="teeballtab" data-add-back-btn="true">
+	<div  data-role="header"><h1>Wanderers<br/>Tee-Ball</h1></div> 
+	<div  data-role="content" id="teeballtabcontent">
+      <ul data-role="listview" id="teeballtablistview">
+      </ul>
+	</div> 
+</div>
+</body>
+</html>
